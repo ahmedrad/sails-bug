@@ -18,6 +18,7 @@
 Cannot decrypt a record that was created using the `findOrCreate` method, `create` method decrypts fine.
 
 ## Recreation steps:
+- Update datastores with some local postgres db config
 - Lift app
 - create a record with the user/signup1 endpoint (uses `create` method)
 - create a record with the user/signup2 endpoint (uses `findOrCreate` method)
