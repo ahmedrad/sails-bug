@@ -8,10 +8,9 @@
 module.exports = {
 
   create1: async function(req, res) {
-    console.log(req);
     try {
-      let result = await User.create(req.allParams());
-      res.json(result);
+      let result = await User.create(req.allParams()).meta({fetch: true});
+      res.send('user created: ' + JSON.stringify(result));
     }
     catch(err) {
       res.negotiate(err);
@@ -20,10 +19,9 @@ module.exports = {
   },
 
   create2: async function(req, res) {
-    console.log(req);
     try {
       let result = await User.findOrCreate({email: req.param('email')}, req.allParams());
-      res.json(result);
+      res.send('user created: ' + JSON.stringify(result));
     }
     catch(err) {
       res.negotiate(err);
